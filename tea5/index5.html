@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>鸳鸯茶面</title>
+		<style>
+			html,body {
+				width: 100%;
+				height:100%;
+				margin:0 0;
+				padding:0 0;
+			}
+			@font-face{
+				font-family:'ZoomlaCarved'; /*逐浪海棠居刻本字*/
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix'); /* IE9 */
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
+			    url('https://code.z01.com/font/ZoomlaCarved.woff') format("woff"), /* chrome、firefox */
+			    url('https://code.z01.com/font/ZoomlaCarved.ttf') format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+			    url('https://code.z01.com/font/ZoomlaCarved.svg#ZoomlaCarved') format("svg"); /* iOS 4.1- */
+			    }
+			#main{							
+				width:640px;
+				height:1030px;		
+				background-image: url("res/背景图.jpg");
+				background-repeat:no-repeat;
+				background-size:contain;
+				background-position:center;
+			}
+			#content{
+				position:relative;
+				top:8px;
+				left:160px;
+			    width:350px;
+			    height:30px;
+			    color:white;
+				font-family:ZoomlaCarved;
+			    font-size:23px;
+			    line-height:30px;
+				letter-spacing:2px;
+				display:inline-block;
+			}
+			#next{
+				float:right;
+				width:130px;
+			}
+			/*茶匙浮动效果*/
+			.sp{
+				position:relative;
+				top:515px;
+				left:100px;
+				width:500px;
+				z-index:2;
+				animation:spUpdown 1s infinite alternate;
+				-webkit-animation: spUpdown 1s infinite alternate;
+			}
+			@keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}     
+			@-webkit-keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}
+			.option{
+				    height:730px;
+			        overflow:hidden;
+			}
+			.box{
+				display:flex;
+				overflow-y: auto;
+				white-space: nowrap;
+				padding:515px 0;
+				-webkit-overflow-scrolling: touch;
+			}
+			.box1{
+				margin:0 26px;
+			}
+			/*隐藏滚动条*/
+			.box::-webkit-scrollbar{
+			    display: none;
+			}
+			.img1:hover{
+				width:200px;
+			}
+			.draft img{
+				position:fixed;
+				width:430px;
+			}
+			#d1{
+				float:left;
+				position:absolute;
+				width:443px;
+				top:112px;
+				left:100px;
+				z-index:7;
+			}
+			#yuan1{
+				width:410px;
+				position:absolute;
+				top:115px;
+				left:127px;
+				display:none;
+				z-index:10;
+			
+			}
+			#yuan2{
+				width:439px;
+				position:absolute;
+				top:277px;
+				left:104px;
+				display:none;
+				z-index:9;
+			}
+			#yuan3{
+				width:410px;
+				position:absolute;
+				top:363px;
+				left:170px;
+				display:none;
+				z-index:8;
+			}
+		</style>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="content"><p>拿起图样上方的茶匙涂抹茶面</p></div> 
+			<a href="index9.html"><img id="next" src="res/完成.png"></a>
+			<div class="draft">
+				<div>
+					<img id="yuan1" src="res/鸳鸯1.png"/>
+					<img id="yuan2" src="res/鸳鸯2.png"/>
+					<img id="yuan3" src='res/鸳鸯3.png'/>
+					<img id="d1" class="ct" src='res/鸳鸯线稿.png'/>
+				</div>
+			</div>
+			<img class="sp" src="res/茶匙.png" alt="" onclick="show()"/>
+			
+			<div class="box">
+					<div class="box1" id="box1"><a href="index3.html"><img id="img1" id="show1" src="res/荷花图样.png" width="160px"></a></div>
+					<div class="box1" id="box2"><a href="index4.html"><img id="img2" id="show2" src="res/丹顶鹤图样.png" width="160px"></a></div>
+					<div class="box1" id="box3"><a href="index5.html"><img id="img3" id="show3" src="res/鸳鸯图样.png" width="160px"></a></div>
+					<div class="box1" id="box4"><a href="index6.html"><img id="img4" id="show4" src="res/池塘图样.png" width="160px"></a></div>
+					<div class="box1" id="box5"><a href="index7.html"><img id="img5" id="show5" src="res/山水图样.png" width="160px"></a></div>
+			</div>
+			
+		</div>
+	</body>
+	
+	<script>
+     
+	 
+	 var yuan1=document.getElementById("yuan1");
+	 var yuan2=document.getElementById("yuan2");
+	 var yuan3=document.getElementById("yuan3");
+	 function show(){
+		 yuan1.style.display="block";
+		 yuan2.style.display="block";
+		 yuan3.style.display="block";
+	 }
+	 </script>
+
+</html>

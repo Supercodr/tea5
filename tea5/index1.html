@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>茶百戏</title>
+		<style>
+			html,body {
+				width: 100%;
+				height:100%;
+				margin:0 0;
+				padding:0 0;
+			}
+			@font-face{
+				font-family:'ZoomlaCarved'; /*逐浪海棠居刻本字*/
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix'); /* IE9 */
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
+			    url('https://code.z01.com/font/ZoomlaCarved.woff') format("woff"), /* chrome、firefox */
+			    url('https://code.z01.com/font/ZoomlaCarved.ttf') format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+			    url('https://code.z01.com/font/ZoomlaCarved.svg#ZoomlaCarved') format("svg"); /* iOS 4.1- */
+			    }
+			#main{							
+				width:640px;
+				height:1030px;		
+				background-image: url("res/背景图.jpg");
+				background-repeat:no-repeat;
+				background-size:contain;
+				background-position:center;
+			}
+			#content{
+				position:relative;
+				top:30px;
+				left:200px;
+			    width:320px;
+			    height:30px;
+			    color:white;
+				font-family:ZoomlaCarved;
+			    font-size:23px;
+			    line-height:30px;
+				display:inline-block;
+				letter-spacing:10px;
+			}
+			#next{
+				float:right;
+				width:120px;
+			}
+			#next:hover{
+				width:130px;
+			}
+			#spt{
+				width:70px;
+				position:relative;
+				top:560px;
+				right:310px;
+				z-index:1;
+			}
+			/*茶匙浮动效果*/
+			.sp{
+				position:relative;
+				top:535px;
+				left:100px;
+				width:500px;
+				z-index:2;
+				animation:spUpdown 1s infinite alternate;
+				-webkit-animation: spUpdown 1s infinite alternate;
+			}
+			@keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}     
+			@-webkit-keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}
+			.option{
+				    height:430px;
+			        overflow:hidden;
+			}
+			.box{
+				display:flex;
+				overflow-y: auto;
+				white-space: nowrap;
+				padding:540px 0;
+				-webkit-overflow-scrolling: touch;
+			}
+			.box1{
+				margin:0 26px;
+			}
+			/*隐藏滚动条*/
+			.box::-webkit-scrollbar{
+			    display: none;
+			}
+			.img1:hover{
+				width:200px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="content"></div> 
+			<a href="index3.html"><img id="next" src="res/下一步.jpg"></a>
+			<img class="sp" src="res/茶匙.png"/>
+			<div class="option">
+				<div class="box">
+					<div class="box1" id="box1"><img class="img1" id="show1" src="res/荷花图样.png" width="160px" ></div>
+					<div class="box1" id="box2"><img class="img1" id="show2" src="res/丹顶鹤图样.png" width="160px" ></div>
+					<div class="box1" id="box3"><img class="img1" id="show3" src="res/鸳鸯图样.png" width="160px" ></div>
+					<div class="box1" id="box4"><img class="img1" id="show4" src="res/池塘图样.png" width="160px" ></div>
+					<div class="box1" id="box5"><img class="img1" id="show5" src="res/山水图样.png" width="160px" ></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+     //文字逐字显示
+	 window.onload=function()
+	 {
+	   var ocontent=document.getElementById("content");
+	   var str="欢迎来到茶百戏！";
+	   var i=0;
+	   var flag=null;
+	   function done()
+	   {
+	     if(i<str.length)
+		 {
+	       ocontent.innerHTML=str.substring(0,i+1);
+		   i=i+1;
+		 } 
+	     else{
+	       clearInterval(flag);
+	     } 
+	  }
+	  flag=setInterval(done,200);
+	 }
+	
+	 </script>
+ 
+</html>

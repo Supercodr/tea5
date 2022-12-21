@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>点茶报告</title>
+		<style>
+			html,body {
+				width: 100%;
+				height:100%;
+				margin:0 0;
+				padding:0 0;
+			}
+			@font-face{
+				font-family:'ZoomlaCarved'; /*逐浪海棠居刻本字*/
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix'); /* IE9 */
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
+			    url('https://code.z01.com/font/ZoomlaCarved.woff') format("woff"), /* chrome、firefox */
+			    url('https://code.z01.com/font/ZoomlaCarved.ttf') format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+			    url('https://code.z01.com/font/ZoomlaCarved.svg#ZoomlaCarved') format("svg"); /* iOS 4.1- */
+			    }
+			#main{							
+				width:640px;
+				height:1030px;		
+				background-image: url("res/背景图.jpg");
+				background-repeat:no-repeat;
+				background-size:contain;
+				background-position:center;
+			}
+			#content{
+				position:relative;
+				top:29px;
+				left:165px;
+			    width:350px;
+			    height:30px;
+			    color:white;
+				font-family:ZoomlaCarved;
+			    font-size:23px;
+			    line-height:30px;
+				letter-spacing:5px;
+				display:inline-block;
+			}
+			#spt{
+				width:70px;
+				position:relative;
+				top:560px;
+				right:310px;
+				z-index:1;
+			}
+			/*茶匙浮动效果*/
+			.sp{
+				position:relative;
+				top:535px;
+				left:100px;
+				width:500px;
+				z-index:2;
+				animation:spUpdown 1s infinite alternate;
+				-webkit-animation: spUpdown 1s infinite alternate;
+			}
+			@keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 72px;
+			    }
+			}     
+			@-webkit-keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 72px;
+			    }
+			}
+			.option{
+				    height:730px;
+			        overflow:hidden;
+			}
+			.box{
+				display:flex;
+				overflow-y: auto;
+				white-space: nowrap;
+				padding:540px 0;
+				-webkit-overflow-scrolling: touch;
+			}
+			/*隐藏滚动条*/
+			.box::-webkit-scrollbar{
+			    display: none;
+			}
+			.box1{
+				background-image:url("res/荷花.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size:91%;
+			}
+			.box2{
+				background-image:url("res/丹顶鹤.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size:91%;
+			}
+			.box3{
+				background-image:url("res/鸳鸯.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size:91%;
+			}
+			.box4{
+				background-image:url("res/池塘.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size:91%;
+			}
+			.box5{
+				background-image:url("res/山水.png");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size:91%;
+			}
+			.img1:hover{
+				width:200px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="content"></div> 
+			<a href="index10.html"><img src=""</a>
+			<img class="sp" src="res/茶匙.png"/>
+			<div class="option">
+				<div class="box">
+					<div class="box1" id="box1"><img class="img1" id="show1" src="res/荷花1.png" width="170px" height="150px" onclick="show1()"></div>
+					<div class="box1" id="box2"><img class="img1" id="show2" src="res/丹1.png" width="170px" onclick="show2()"></div>
+					<div class="box1" id="box3"><img class="img1" id="show3" src="res/鸳鸯1.png" width="170px" onclick="show3()"></div>
+					<div class="box1" id="box4"><img class="img1" id="show4" src="res/池塘1.png" width="170px" onclick="show4()"></div>
+					<div class="box1" id="box5"><img class="img1" id="show5" src="res/山水1.png" width="170px" onclick="show5()"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+     //文字逐字显示
+	 window.onload=function()
+	 {
+	   var ocontent=document.getElementById("content");
+	   var str="点击完成领取点茶报告吧！";
+	   var i=0;
+	   var flag=null;
+	   function done()
+	   {
+	     if(i<str.length)
+		 {
+	       ocontent.innerHTML=str.substring(0,i+1);
+		   i=i+1;
+		 } 
+	     else{
+	       clearInterval(flag);
+	     } 
+	  }
+	  flag=setInterval(done,200);
+	 }
+	
+	 </script>
+ 
+</html>

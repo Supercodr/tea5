@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>选择图样</title>
+		<style>
+			html,body {
+				width: 100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+			@font-face{
+				font-family:'ZoomlaCarved'; /*逐浪海棠居刻本字*/
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix'); /* IE9 */
+			    src: url('https://code.z01.com/font/ZoomlaCarved.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
+			    url('https://code.z01.com/font/ZoomlaCarved.woff') format("woff"), /* chrome、firefox */
+			    url('https://code.z01.com/font/ZoomlaCarved.ttf') format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+			    url('https://code.z01.com/font/ZoomlaCarved.svg#ZoomlaCarved') format("svg"); /* iOS 4.1- */
+			    }
+			#main{							
+				width:640px;
+				height:1030px;		
+				background-image: url("res/背景图.jpg");
+				background-repeat:no-repeat;
+				background-size:contain;
+				position:relative;
+			}
+			#content{
+				position:absolute;
+				top:30px;
+				left:165px;
+			    width:320px;
+			    height:30px;
+			    color:white;
+				font-family:'ZoomlaCarved';
+			    font-size:23px;
+			    line-height:30px;
+				display:inline-block;
+				letter-spacing:10px;
+				animation:txt 3s linear;
+			}
+			@keyframes txt{
+				0%{opacity:0}
+				25%{opacity:0.5}
+				50%{opacity:1}
+				75%{opacity:0.5}
+				100%{opacity:0}
+			}
+			@keyframes txt1{
+				0%{opacity:0}
+				50%{opacity:0.5}
+				100%{opacity:1}
+			}
+			#next{
+				float:right;
+				width:120px;
+			}
+			#next:hover{
+				width:130px;
+			}
+			#spt{
+				width:70px;
+				position:absolute;
+				top:560px;
+				right:310px;
+				z-index:1;
+			}
+			/*茶匙浮动效果*/
+			.sp{
+				position:absolute;
+				top:565px;
+				left:100px;
+				width:500px;
+				z-index:2;
+				animation:spUpdown 1s alternate infinite;
+				-webkit-animation: spUpdown 1s alternate infinite;
+			}
+			@keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}     
+			@-webkit-keyframes spUpdown {
+			    from {
+			        margin-top: 80px;
+			    }
+			    to {
+			        margin-top: 70px;
+			    }
+			}
+			.option{
+				    margin-top:860px;
+					width:640px;
+			        overflow:hidden;
+					position:absolute;
+			}
+			.box{
+				display:flex;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+			.box1{
+				margin:10px 27px;
+			}
+			/*隐藏滚动条*/
+			.box::-webkit-scrollbar{
+			    display: none;
+			}
+			#show1,#show2,#show3,#show4,#show5{
+				width:150px;
+				animation:large 3s linear infinite;
+			}
+			@keyframes large{
+				0%{width:150px}
+				50%{width:153px}
+				100%{width:150px}
+			}
+			#circle{
+				position:absolute;
+				margin-top: 100px;
+				margin-left: 42px;
+				width:550px;
+				height:530px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="content">欢迎来到茶百戏！</div>
+			<a href="index3.html"><img id="next" src="res/下一步.jpg"></a>
+			<div id="circle"></div>
+			<img class="sp" src="res/茶匙.png"/>
+			<div class="option">
+				<div class="box">
+					<div class="box1" id="box1"><img  id="show1" src="res/荷花图样.png"  ></div>
+					<div class="box1" id="box2"><img  id="show2" src="res/丹顶鹤图样.png" ></div>
+					<div class="box1" id="box3"><img  id="show3" src="res/鸳鸯图样.png"  ></div>
+					<div class="box1" id="box4"><img  id="show4" src="res/池塘图样.png"  ></div>
+					<div class="box1" id="box5"><img  id="show5" src="res/山水图样.png"  ></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+        window.onload=function(){
+			var txt=document.getElementById("content");
+			txt.addEventListener("animationend",function(){
+				txt.innerHTML="有五种图样可供选择";
+				txt.style.animation="txt1 2.5s linear";
+			});
+		}
+		var circle=document.getElementById("circle");
+		document.getElementById("show1").onclick=function(){
+			var draft1=document.createElement("img");
+			draft1.src="res/荷花线稿.png";
+			draft1.style.position="absolute";
+			draft1.style.marginTop=48+"px";
+			draft1.style.marginLeft=-7+"px";
+			draft1.style.width=520+"px";
+			circle.appendChild(draft1);
+		}
+		document.getElementById("show2").onclick=function(){
+			var draft2=document.createElement("img");
+			draft2.src="res/丹顶鹤线稿.png";
+			draft2.style.position="absolute";
+			draft2.style.marginLeft=57+"px";
+			draft2.style.marginTop=42+"px";
+			draft2.style.width=480+"px";
+			circle.appendChild(draft2);
+		}
+	    document.getElementById("show3").onclick=function(){
+	    	var draft3=document.createElement("img");
+	    	draft3.src="res/鸳鸯线稿.png";
+	    	draft3.style.position="absolute";
+	    	draft3.style.paddingTop=10+"px";
+			draft3.style.paddingLeft=50+"px";
+	    	draft3.style.width=440+"px";
+	    	circle.appendChild(draft3);
+	    }
+		document.getElementById("show4").onclick=function(){
+			var draft4=document.createElement("img");
+			draft4.src="res/池塘线稿.png";
+			draft4.style.position="absolute";
+			draft4.style.marginTop=22+"px";
+			draft4.style.marginLeft=32+"px";
+			draft4.style.width=480+"px";
+			circle.appendChild(draft4);
+		}
+		document.getElementById("show5").onclick=function(){
+			var draft5=document.createElement("img");
+			draft5.src="res/山水线稿.png";
+			draft5.style.position="absolute";
+			draft5.style.marginTop=42+"px";
+			draft5.style.marginLeft=12+"px";
+			draft5.style.width=527+"px";
+			circle.appendChild(draft5);
+		}
+	 </script>
+ 
+</html>
